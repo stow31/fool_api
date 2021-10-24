@@ -3,17 +3,17 @@ const { Pool } = require('pg');
 //     database: 'fool_app'
 // })
 
-let pool;
+let db;
 if (process.env.NODE_ENV === 'production') {
-  pool = new Pool({
+  db = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: {
       rejectUnauthorized: false
     }
   })
 } else {
-  pool = new Pool({
-    database: 'my_local_database_name',
+    db = new Pool({
+    database: 'fool_app',
     password: 'optional_password'
   })
 }
