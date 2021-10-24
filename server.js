@@ -11,6 +11,10 @@ app.listen(port, () => {
 
 app.use(express.json()) 
 
+app.get('/', (req, res) =>{
+    res.send('fool api')
+})
+
 app.get('/api/locations', (req, res) => {
     let promise = Location.findAll();
     promise.then( dbRes => {
